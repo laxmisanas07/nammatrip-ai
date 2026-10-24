@@ -329,10 +329,7 @@ nammatrip-ai/
 │   ├── slide-previews/           # 1080p slide previews & full-deck montage
 │   │   ├── deck_overview.png
 │   │   └── slide_1.png ... slide_8.png
-│   ├── demo/
-│   │   └── voiceover-script.md    # 4:30 minute timed demo script
 │   ├── architecture.mmd           # Mermaid architecture diagram
-│   ├── demo-checklist.md          # Video recording execution checklist
 │   ├── final-checklist.md         # Official hackathon submission checklist
 │   ├── NammaTrip_AI_Hackathon_Presentation.pptx # Editable 16:9 presentation
 │   └── NammaTrip_AI_Hackathon_Presentation_backup.pptx # Preserved backup
@@ -451,7 +448,6 @@ The complete hackathon submission materials are located in the `submission/` dir
 - **Full-Deck Montage:** [`submission/slide-previews/deck_overview.png`](submission/slide-previews/deck_overview.png)
 - **High-Resolution Previews:** [`submission/slide-previews/slide_1.png`](submission/slide-previews/slide_1.png) to [`slide_8.png`](submission/slide-previews/slide_8.png)
 - **Presentation Generator Script:** [`scripts/generate-presentation.mjs`](scripts/generate-presentation.mjs)
-- **4:30 Video Voiceover Script:** [`submission/demo/voiceover-script.md`](submission/demo/voiceover-script.md)
 - **Final Submission Checklist:** [`submission/final-checklist.md`](submission/final-checklist.md)
 
 ---

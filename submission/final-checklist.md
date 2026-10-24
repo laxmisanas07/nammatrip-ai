@@ -51,9 +51,7 @@ Use this checklist before submitting your entry on **Unstop** by the official de
 ---
 
 ## 5. Video Explanation (3–5 Minutes)
-- [x] **Voiceover Script Ready:** `submission/demo/voiceover-script.md` prepared with exact timestamps (0:00 to 4:30) and screen recording cues.
-- [x] **Recording Checklist Ready:** `submission/demo-checklist.md` available for screen recording instructions.
-- [ ] **Recording Captured:** Record video using OBS, Windows Game Bar, or Loom following the script.
+- [ ] **Recording Captured:** Record video demonstrating the live application.
 - [ ] **Duration Verified:** Ensure final recording is strictly between 3:00 and 5:00 minutes.
 - [ ] **Video Upload:** Upload video to YouTube (as Unlisted) or Google Drive (share permissions set to "Anyone with the link can view").
 
