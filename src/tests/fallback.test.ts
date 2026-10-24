@@ -47,4 +47,18 @@ describe('Deterministic Fallback Planner', () => {
       'Using the built-in planner. Add your AI API key to enable Gemini-generated itineraries.'
     );
   });
+
+  it('gracefully falls back to deterministic planner when GEMINI_API_KEY is invalid or fails', async () => {
+    const { generateItinerary } = await import('@/lib/ai/gemini');
+    process.env.GEMINI_API_KEY = 'invalid_dummy_key_for_testing';
+
+    const itinerary = await generateItinerary(sampleInput);
+
+    expect(itinerary).toBeDefined();
+    expect(itinerary.generatorSource).toBe('deterministic-fallback');
+    expect(itinerary.days.length).toBe(3);
+    expect(itinerary.budget.totalEstimatedCost).toBeGreaterThan(0);
+
+    delete process.env.GEMINI_API_KEY;
+  });
 });
