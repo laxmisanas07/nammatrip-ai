@@ -1,0 +1,63 @@
+flowchart TD
+    %% User Layer
+    Traveller(["👤 Traveller / Judge"])
+
+    %% Frontend Client Layer
+    subgraph Frontend ["Frontend Client (Next.js 16 App Router + React 19)"]
+        UI_Home["Home Page (/)"]
+        UI_Explore["Explore Karnataka (/explore)\n• 15 Curated Destinations\n• Search & Region/Interest Filters"]
+        UI_Plan["Planner Form (/plan)\n• Constraints & Budget in INR\n• Validation & Error Handling"]
+        UI_Itinerary["Itinerary View (/itinerary/[id])\n• Day-by-Day Schedules\n• Budget Audit & Feasibility\n• Interactive Leaflet Map\n• Print / PDF Export"]
+        UI_Saved["Saved Trips (/saved)\n• Browser LocalStorage CRUD"]
+        Storage[("Browser LocalStorage\n(Offline Persistence)")]
+    end
+
+    %% Server Layer
+    subgraph Server ["Server-Side Architecture (Next.js Route Handlers)"]
+        API_Route["POST /api/itinerary\n(Server-Side API Route)"]
+        Zod_Input{"Zod Input Validation\n(plannerInputSchema)"}
+        
+        %% Intelligence & Synthesis
+        subgraph Intelligence ["Dual-Engine Intelligence Layer"]
+            KeyCheck{"GEMINI_API_KEY\nConfigured?"}
+            Gemini_API["Google Gemini 2.5 Flash\n(@google/genai SDK)\n• Structured JSON Schema\n• 25s Timeout Guard"]
+            Zod_Output{"Zod Output Validation\n(aiItineraryOutputSchema)"}
+            Fallback_Planner["Deterministic Karnataka Planner\n(Zero-Credential Fallback)\n• 100% Offline Viability"]
+        end
+
+        %% Data & Calculation
+        subgraph DataEngine ["Data & Calculation Engines"]
+            Dest_Data[("Curated Karnataka Dataset\n15 Destinations • Verified Coords\nCost Bands • Cultural Notes")]
+            Dest_Match["Destination Matcher & Ranking\n• Interest Overlap\n• Geographic Clustering\n• Haversine Distance Filter"]
+            Budget_Engine["Programmatic Budget Engine\n• Double-Occupancy Room Accounting\n• Group vs Person Segregation\n• 6% Contingency Buffer\n• Feasibility Scorer (INR)"]
+        end
+    end
+
+    %% Connections
+    Traveller --> UI_Home
+    Traveller --> UI_Explore
+    Traveller --> UI_Plan
+    UI_Explore -->|Prefill Destination| UI_Plan
+    UI_Plan -->|Submit Payload| API_Route
+
+    API_Route --> Zod_Input
+    Zod_Input -->|Valid Input| Dest_Match
+    Dest_Data --> Dest_Match
+
+    Dest_Match --> KeyCheck
+    KeyCheck -->|Yes| Gemini_API
+    KeyCheck -->|No / Offline| Fallback_Planner
+    
+    Gemini_API --> Zod_Output
+    Zod_Output -->|Valid Output| Budget_Engine
+    Zod_Output -->|Error / Timeout| Fallback_Planner
+
+    Fallback_Planner --> Budget_Engine
+    Dest_Data --> Budget_Engine
+
+    Budget_Engine -->|Normalized Itinerary JSON| API_Route
+    API_Route -->|Return Itinerary| UI_Itinerary
+    
+    UI_Itinerary <--> Storage
+    UI_Saved <--> Storage
+    UI_Itinerary -->|Browser Print| PDF_Export["Exported PDF / Summary"]

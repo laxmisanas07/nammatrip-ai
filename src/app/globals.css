@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --bg-sand: #FAF7F2;
+  --bg-card: #FFFFFF;
+  --forest-900: #0F2A1F;
+  --forest-800: #1B4332;
+  --forest-700: #2D6A4F;
+  --forest-600: #40916C;
+  --forest-100: #E9F3EE;
+  --forest-50: #F4F8F5;
+  --terracotta-800: #A84420;
+  --terracotta-600: #C85A32;
+  --terracotta-500: #D96B43;
+  --terracotta-100: #FAECE6;
+  --terracotta-50: #FDF6F2;
+  --stone-800: #1F2623;
+  --stone-600: #4A5550;
+  --stone-400: #7E8B84;
+  --stone-200: #E3DED6;
+  --stone-100: #EFEBE4;
+}
+
+body {
+  background-color: var(--bg-sand);
+  color: var(--stone-800);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom styling for editorial cards and inputs */
+.editorial-card {
+  background-color: #ffffff;
+  border: 1px solid var(--stone-200);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px -2px rgba(15, 42, 31, 0.05);
+}
+
+.editorial-card-hover {
+  transition: all 0.2s ease-in-out;
+}
+.editorial-card-hover:hover {
+  border-color: var(--forest-600);
+  box-shadow: 0 10px 25px -5px rgba(15, 42, 31, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Print Styles for Itinerary Export */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .editorial-card {
+    border: 1px solid #cccccc !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+}
