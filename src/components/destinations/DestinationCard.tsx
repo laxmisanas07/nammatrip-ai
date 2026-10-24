@@ -25,8 +25,10 @@ export function DestinationCard({ destination, onSelectDetails }: DestinationCar
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
           onError={(e) => {
-            // Graceful image fallback
-            (e.target as HTMLElement).style.display = 'none';
+            const img = e.currentTarget;
+            if (!img.src.includes('/images/destinations/hampi.jpg')) {
+              img.src = '/images/destinations/hampi.jpg';
+            }
           }}
         />
         {/* Region badge */}

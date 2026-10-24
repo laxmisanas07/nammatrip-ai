@@ -26,6 +26,12 @@ export function DestinationDetailModal({ destination, onClose }: DestinationDeta
             src={destination.imageUrl}
             alt={destination.imageAlt}
             className="w-full h-full object-cover"
+            onError={(e) => {
+              const img = e.currentTarget;
+              if (!img.src.includes('/images/destinations/hampi.jpg')) {
+                img.src = '/images/destinations/hampi.jpg';
+              }
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 

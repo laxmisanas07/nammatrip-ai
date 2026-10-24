@@ -74,11 +74,18 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-[#1B4332] mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#7E8B84] gap-4">
+        <div className="border-t border-[#1B4332] mt-12 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#A2B3AB] gap-4">
           <p>© 2026 NammaTrip AI. Dedicated to celebrating the heritage and beauty of Karnataka.</p>
-          <p className="flex items-center gap-1">
-            Built with <Heart className="w-3.5 h-3.5 text-[#C85A32] fill-[#C85A32]" /> for Karnataka Tourism
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#1B4332] text-[#EFEBE4] font-medium border border-[#2D6A4F]/60">
+              Project made by{' '}
+              <span className="text-[#D96B43] font-semibold ml-1">Laxmi Sanas</span>
+            </span>
+            <span className="hidden sm:inline text-[#7E8B84]">•</span>
+            <p className="flex items-center gap-1 text-[#7E8B84]">
+              Built with <Heart className="w-3.5 h-3.5 text-[#C85A32] fill-[#C85A32]" /> for Karnataka Tourism
+            </p>
+          </div>
         </div>
       </div>
     </footer>
