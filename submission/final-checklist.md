@@ -24,7 +24,7 @@ Use this checklist before submitting your entry on **Unstop** by the official de
 ## 3. Application Verification & Tests
 - [x] **TypeScript Type Checking:** `npm run typecheck` passes with 0 errors.
 - [x] **ESLint Code Quality:** `npm run lint` passes with 0 errors and 0 warnings.
-- [x] **Unit & API Tests:** `npm run test` executes 17 automated tests with 100% pass rate.
+- [x] **Unit & API Tests:** `npm run test` executes 18 automated tests with 100% pass rate.
 - [x] **Next.js Production Build:** `npm run build` succeeds with zero errors, generating static and dynamic routes.
 - [x] **Deterministic AI Fallback:** Tested without a `GEMINI_API_KEY` — generates complete, realistic schedules and budget audits so judges can demo the app instantly without setup friction.
 - [x] **Gemini Integration:** Ready to use Google Gemini 2.5 Flash when `GEMINI_API_KEY` is provided in environment variables.
